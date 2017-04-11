@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentsService } from './shared/services/students.service';
+import { LessonsService } from './shared/services/lessons.service';
+
+import { Lesson } from './models/lesson';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +9,14 @@ import { StudentsService } from './shared/services/students.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  subjects: Lesson;
 
-  constructor(private studentsService: StudentsService) { }
+  constructor(private lessonsService: LessonsService) { }
 
   ngOnInit() {
-    this.studentsService.getStudents().subscribe(res => {
+    this.lessonsService.getLessons().subscribe(res => {
       console.log(res);
+      this.subjects = res.data;
     });
   }
 }

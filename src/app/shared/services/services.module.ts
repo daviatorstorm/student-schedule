@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StudentsService } from './students.service';
 import { TeachersService } from './teachers.service';
-import { BaseComponent } from './base/base.component';
+import { LessonsService } from './lessons.service';
 
 @NgModule({
   imports: [
@@ -10,8 +10,8 @@ import { BaseComponent } from './base/base.component';
   ],
   providers: [
     StudentsService,
-    TeachersService
-  ],
-  declarations: [BaseComponent]
+    TeachersService,
+    LessonsService
+  ]
 })
 export class ServicesModule { }

@@ -1,3 +1,19 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <h1>Welcome to Internation school!</h1>
+  <h2>We have some interesting subjects to learn:</h2>
+  <ul class="list-inline">
+    <li *ngFor="let subject of subjects">
+      <alert type="success">{{ subject.name }}</alert>
+    </li>
+  </ul>
+
+  <ul class="nav nav-tabs">
+    <li routerLink="/" routerLinkActive="active" role="presentation"><a>Dashboard</a></li>
+    <li routerLink="/students" routerLinkActive="active" role="presentation"><a>Students</a></li>
+    <li routerLink="/teachers" routerLinkActive="active" role="presentation"><a>Teachers</a></li>
+  </ul>
+
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>

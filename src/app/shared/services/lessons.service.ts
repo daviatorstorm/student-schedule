@@ -3,12 +3,12 @@ import { Http, RequestMethod } from '@angular/http';
 import { BaseService } from './base.service';
 
 @Injectable()
-export class StudentsService extends BaseService {
+export class LessonsService extends BaseService {
   constructor(http: Http) {
     super(http);
   }
 
-  getStudents() {
-    return this.makeRequest(RequestMethod.Get, 'api/students');
+  getLessons() {
+    return this.makeRequest(RequestMethod.Get, 'api/lessons');
   }
 }

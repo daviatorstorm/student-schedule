@@ -1,0 +1,21 @@
+<h2>Shcedule</h2>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="lessons">
+      <tr *ngFor="let row of rows">
+        <td>{{ row }}</td>
+        <td *ngFor="let lesson of getRandomLessons()">{{ lesson.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
