@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.lessonsService.getLessons().subscribe(res => {
-      console.log(res);
       this.subjects = res.data;
     });
   }

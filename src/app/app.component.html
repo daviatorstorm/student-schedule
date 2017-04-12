@@ -8,7 +8,7 @@
   </ul>
 
   <ul class="nav nav-tabs">
-    <li routerLink="/" routerLinkActive="active" role="presentation"><a>Dashboard</a></li>
+    <li routerLink="/" routerLinkActive="active" role="presentation" [routerLinkActiveOptions]="{ exact: true }"><a>Dashboard</a></li>
     <li routerLink="/students" routerLinkActive="active" role="presentation"><a>Students</a></li>
     <li routerLink="/teachers" routerLinkActive="active" role="presentation"><a>Teachers</a></li>
   </ul>

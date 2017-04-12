@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap';
 
 import { Student } from '../../models/student';
 import { StudentsService } from '../../shared/services/students.service';
@@ -10,6 +11,9 @@ import { StudentsService } from '../../shared/services/students.service';
 })
 export class StudentsComponent implements OnInit {
   students: Student[];
+  newStudent: Student;
+
+  @ViewChild('staticModal') public modal: ModalDirective;
 
   constructor(private studentsService: StudentsService) { }
 
@@ -17,5 +21,10 @@ export class StudentsComponent implements OnInit {
     this.studentsService.getStudents().subscribe(res => {
       this.students = res.data;
     });
+  }
+
+  createStudent() {
+    this.modal.hide();
+    // Finish here
   }
 }
