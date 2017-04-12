@@ -1,5 +1,5 @@
-<h2>Students</h2>
-<div class="table-responsive" *ngIf="students">
+<h2>Teachers</h2>
+<div class="table-responsive" *ngIf="teachers">
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -9,13 +9,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{ student.id }}</td>
-        <td>{{ student.name }}</td>
+      <tr *ngFor="let teacher of teachers">
+        <td>{{ teacher.id }}</td>
+        <td>{{ teacher.name }}</td>
         <td>
           <div class="btn-group">
-            <button class="btn btn-info" (click)="openModal(student.id)" [disabled]="!activeBtns">Edit</button>
-            <button class="btn btn-danger" (click)="deleteStudent(student.id)" [disabled]="!activeBtns">Delete</button>
+            <button class="btn btn-info" (click)="openModal(teacher.id)" [disabled]="!activeBtns">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTeacher(teacher.id)" [disabled]="!activeBtns">Delete</button>
           </div>
         </td>
       </tr>
@@ -29,20 +29,20 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left"> {{addingStudent ? 'Create' : 'Update'}}  student</h4>
+        <h4 class="modal-title pull-left"> {{addingTeacher ? 'Create' : 'Update'}}  teacher</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form>
-          <div class="form-group" *ngIf="newStudent.id">
-            <label>Id: </label> <span> {{ newStudent.id }}</span>
+          <div class="form-group" *ngIf="newTeacher.id">
+            <label>Id: </label> <span> {{ newTeacher.id }}</span>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Student name" [(ngModel)]="newStudent.name" name="name">
+            <input type="text" class="form-control" placeholder="Student name" [(ngModel)]="newTeacher.name" name="name">
           </div>
-          <button type="button" class="btn btn-success" (click)="saveModalBtnClick(newStudent)" [disabled]="loading">Save</button>
+          <button type="button" class="btn btn-success" (click)="saveModalBtnClick(newTeacher)" [disabled]="loading">Save</button>
         </form>
       </div>
     </div>
