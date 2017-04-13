@@ -1,9 +1,8 @@
-import { Http, RequestMethod } from '@angular/http';
+import { Http, RequestMethod, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-// import 'rxjs/add/observable/throw';
 
 export class BaseService {
     constructor(protected http: Http) { }
@@ -14,12 +13,13 @@ export class BaseService {
             .catch(this.handleError);
     }
 
-    private extractData(response: any) {
-        return response.json();
+    private extractData(response: Response) {
+        const mapped = response.json() || {};
+        return mapped.data || mapped;
     }
 
-    private handleError(err: any) {
-        console.log(Observable.throw);
-        return Observable.throw(err.message);
+    private handleError(err: any, obs: any) {
+        console.log('error message.', err);
+        return Observable.throw(err);
     }
 }

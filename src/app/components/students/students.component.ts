@@ -23,8 +23,8 @@ export class StudentsComponent implements OnInit {
   constructor(private studentsService: StudentsService, private router: Router) { }
 
   ngOnInit() {
-    this.studentsService.getStudents().subscribe(res => {
-      this.students = res.data;
+    this.studentsService.getStudents().subscribe(data => {
+      this.students = data;
     });
 
     this.modal.onHidden.subscribe(() => this.newStudent = new Student());
@@ -33,8 +33,8 @@ export class StudentsComponent implements OnInit {
   openModal(id: number) {
     if (id) {
       this.addingStudent = false;
-      this.studentsService.getById(id).subscribe(res => {
-        this.newStudent = res.data;
+      this.studentsService.getById(id).subscribe(data => {
+        this.newStudent = data;
         this.modal.show();
       });
     } else {
@@ -54,19 +54,19 @@ export class StudentsComponent implements OnInit {
 
   deleteStudent(id: number) {
     this.activeBtns = false;
-    this.studentsService.deleteStudent(id).subscribe(res => {
-      this.studentsService.getStudents().subscribe(students => {
-        this.students = students.data;
+    this.studentsService.deleteStudent(id).subscribe(() => {
+      this.studentsService.getStudents().subscribe(data => {
+        this.students = data;
         this.activeBtns = true;
       });
     });
   }
 
   private createStudent(student: Student) {
-    this.studentsService.createStudent(student).subscribe(res => {
+    this.studentsService.createStudent(student).subscribe(() => {
       this.newStudent = new Student();
-      this.studentsService.getStudents().subscribe(students => {
-        this.students = students.data;
+      this.studentsService.getStudents().subscribe(data => {
+        this.students = data;
         this.modal.hide();
         this.loading = false;
       });
@@ -74,9 +74,9 @@ export class StudentsComponent implements OnInit {
   }
 
   private updateStudent(student: Student) {
-    this.studentsService.updateStudent(student).subscribe(res => {
-      this.studentsService.getStudents().subscribe(students => {
-        this.students = students.data;
+    this.studentsService.updateStudent(student).subscribe(() => {
+      this.studentsService.getStudents().subscribe(data => {
+        this.students = data;
         this.modal.hide();
         this.loading = false;
         this.addingStudent = true;

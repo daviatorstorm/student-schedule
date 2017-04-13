@@ -15,8 +15,8 @@ export class DashboardComponent implements OnInit {
   constructor(private lessonsService: LessonsService) { }
 
   ngOnInit() {
-    this.lessonsService.getLessons().subscribe(res => {
-      this.lessons = res.data;
+    this.lessonsService.getLessons().subscribe(data => {
+      this.lessons = data;
     });
   }
 

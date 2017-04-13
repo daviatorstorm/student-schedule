@@ -7,9 +7,9 @@ import { teachers } from './teachers.mock';
 export class InMemoryDb implements InMemoryDbService {
     createDb() {
         return {
-            lessons,
-            students,
-            teachers
+            'students': students,
+            'lessons': lessons,
+            'teachers': teachers
         };
     }
 }
